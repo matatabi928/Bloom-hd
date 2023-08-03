@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117.41 146.09">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #aeaeae;
+      }
+    </style>
+  </defs>
+  <g id="_アイコン" data-name="アイコン">
+    <g>
+      <path class="cls-2" d="m117.41,71.46c-21.28-13.85-43.02-19.86-53.16-22.1-2.52-.55-8.48-.57-10.89-.04-10.04,2.19-31.94,8.2-53.36,22.14,0,0,25.08,47.31,28.41,56.56,3.33,9.25,2.89,18.01,2.89,18.01h54.82s-.44-8.76,2.89-18.01c3.33-9.25,28.41-56.56,28.41-56.56Z"/>
+      <rect class="cls-2" x="21.88" y="26.94" width="73.65" height="5.81"/>
+      <rect class="cls-2" x="17.56" y="24.15" width="82.3" height="5.81"/>
+      <rect class="cls-2" x="39.35" y="13.42" width="38.72" height="11.48"/>
+      <rect class="cls-2" x="55.4" width="6.61" height="15.12"/>
+      <g>
+        <rect class="cls-2" x="25.97" y="30.49" width="6.77" height="12.26"/>
+        <rect class="cls-2" x="45.54" y="30.49" width="6.77" height="12.26"/>
+        <rect class="cls-2" x="65.1" y="30.49" width="6.77" height="12.26"/>
+        <rect class="cls-2" x="84.67" y="30.49" width="6.77" height="12.26"/>
+      </g>
+      <path class="cls-2" d="m52.98,47.59c1.75-.38,4.5-.42,5.6-.42,1.18,0,4.13.05,6.05.47,6.96,1.53,18.19,4.56,30.9,10.1v-17.24H21.88v17.23c12.8-5.58,24.11-8.61,31.1-10.14Z"/>
+      <g>
+        <polygon class="cls-1" points="52.99 146.09 58.96 99.57 63.52 146.09 52.99 146.09"/>
+        <ellipse class="cls-1" cx="81.6" cy="67.62" rx="5.44" ry="7.02"/>
+        <ellipse class="cls-1" cx="95.18" cy="72.04" rx="4.33" ry="5.59"/>
+        <ellipse class="cls-1" cx="105.22" cy="76" rx="3.07" ry="3.96"/>
+      </g>
+    </g>
+  </g>
+</svg>
