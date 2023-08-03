@@ -60,6 +60,25 @@ label {
     color: white;
 }
 
+.effect-fade {
+    position: relative;
+    overflow: hidden;
+    color: transparent; /* 初期状態では文字を透明にします */
+}
+
+.effect-fade::after {
+    content: attr(data-text); /* ここでテキスト内容を挿入します */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #000; /* 文字の色を設定します。必要に応じて変更してください */
+    white-space: pre; /* 改行とスペースを保持する */
+    overflow: hidden;
+    width: 100%;
+    height: 0%; /* 初期状態では高さを0%にします */
+    transition: height 0.6s cubic-bezier(0.25, 0.1, 0.2, 1);
+}
+
 .effect-fade-left {
     opacity: 0;
     transform: translateX(-100px);
@@ -71,26 +90,14 @@ label {
     transform: translateX(0);
 }
 
-.effect-fade {
-    opacity: 0;
-    transform: translate(0, 60px);
-    transition: all 800ms;
-    filter: alpha(opacity=0);
-    -moz-opacity: 0;
-    opacity: 0;
-}
+.effect-fade.effect-scroll::after  {
+    height: 100%; /* 表示時に高さを100%にします */
 
-.effect-fade.effect-scroll {
-    opacity: 1;
-    transform: translate(0, 0);
-    filter: alpha(opacity=100);
-    -moz-opacity: 1;
-    opacity: 1;
 }
 
 .effect-fade-in {
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
 }
 
 .effect-fade-in.effect-scroll {
@@ -126,12 +133,12 @@ header {
 
 .header__nav__menu a:hover {
     background-image: linear-gradient(90deg, 
-    rgb(255, 255, 255),  /* 白色 */
-    rgb(128, 0, 128),    /* 紫 */
-    rgb(0, 0, 255),      /* 青 */
-    rgb(0, 255, 255),    /* 水色 */
-    rgb(135, 206, 235),  /* 空色 */
-    rgb(229, 255, 0));   /* 鮮やかな色 (オレンジ) */
+    rgb(255, 255, 255), 
+    rgb(176, 227, 255),  
+    rgb(77, 101, 240),     
+    rgb(98, 96, 218),  
+    rgb(45, 74, 205),  
+    rgb(64, 0, 255));
 background-size: 200% auto; /* グラデーションが画面外まで広がるように設定 */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; /* グラデーションが文字に適用されるように設定 */
@@ -302,10 +309,41 @@ background-size: 200% auto; /* グラデーションが画面外まで広がる�
     padding-bottom: 25px;
 }
 
-.about__img img {
-    width: 100%;
-    height: auto;
-}
+
+.about__content {
+    position: relative;
+    padding: 10px 20px; /* 余白の追加 */
+    transition: background-color 0.3s ease; /* 背景色の遷移効果 */
+  }
+  
+  .about__content a {
+    text-decoration: none; /* リンクの下線を削除 */
+    color: #000; /* 通常のテキスト色 */
+    transition: color 0.3s ease; /* テキスト色の遷移効果 */
+  }
+  
+  .about__content:hover {
+    background-color: #192B46; /* ホバー時の背景色 */
+  }
+  
+  .about__content:hover a {
+    color: #fff; /* ホバー時のテキスト色 */
+  }
+  
+  .about__content::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px; /* ラインの高さ */
+    background: gainsboro; /* ラインの色 */
+    transition: width 0.3s cubic-bezier(0.25, 0.1, 0.2, 1); /* ラインの幅の遷移効果 */
+  }
+  
+  .about__content:hover::before {
+    width: 100%; /* ホバー時のラインの幅 */
+  }
 
 
 /* Footer *//* Footer *//* Footer *//* Footer *//* Footer */
@@ -749,6 +787,8 @@ footer {
 .about__img {
     width: 100%;
 }
+
+
 
 .about__img {
     padding-top: 50px;
