@@ -18,21 +18,31 @@ const burger = document.querySelector('.burger');
 const nav = document.querySelector('.header__nav__menu');
 
 // バーガーメニュー要素がクリックされたときのイベントリスナーを設定
-burger.addEventListener('click', () => {
-    // クリックされたらナビゲーションメニューに "show" クラスを追加/削除
-    nav.classList.toggle('show');
-});
+burger.addEventListener('click', toggleNav);
 
 // メニュー内の全てのリンク要素を取得
 const navLinks = document.querySelectorAll('.header__nav__menu a');
 
 // 各リンクにイベントリスナーを追加
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        // リンクがクリックされたらナビゲーションメニューの "show" クラスを削除
-        nav.classList.remove('show');
-    });
+    link.addEventListener('click', toggleNav);
 });
+
+// ナビゲーションメニューの表示を切り替える関数
+function toggleNav() {
+    if (nav.classList.contains('show')) {
+        nav.style.transition = 'none'; // トランジションを無効化
+        nav.classList.remove('show');
+        // トランジションを元に戻すためのタイマーをセット
+        setTimeout(() => {
+            nav.style.transition = '';
+        }, 0);
+    } else {
+        nav.classList.add('show');
+    }
+}
+
+
 
 
 

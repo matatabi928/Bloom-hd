@@ -154,13 +154,21 @@ background-size: 200% auto; /* グラデーションが画面外まで広がる�
 .hero__img {
     background-color: white; /* ここを変更 - 背景色を適切な値に設定 */
     display: flex;
-    background-image:url(../Bloom-hd/image/hero_logo.png) ;
+    background-image:url(/image/hero_logo.svg) ;
     background-repeat:no-repeat;
     background-position: center;
     background-size: 400px;
     height: 100svh;
     align-items: center;
     vertical-align: bottom;
+}
+
+.burger {
+    display: none;
+}
+
+.dart {
+    display: none;
 }
 
 /* News *//* News *//* News *//* News *//* News *//* News *//* News */
@@ -186,7 +194,7 @@ background-size: 200% auto; /* グラデーションが画面外まで広がる�
     display: flex;
     align-items: center;
     gap: 50px;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .news-content__date {
@@ -345,6 +353,7 @@ background-size: 200% auto; /* グラデーションが画面外まで広がる�
     width: 100%; /* ホバー時のラインの幅 */
   }
 
+  
 
 /* Footer *//* Footer *//* Footer *//* Footer *//* Footer */
 /* Footer *//* Footer *//* Footer *//* Footer *//* Footer */
@@ -375,13 +384,14 @@ footer {
     padding: 0 20px;
 }
 
+
 /* Header */
 
-.header__nav__menu {
-    display: none;
-    opacity: 0;
-    transform: translateX(100%);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+.burger {
+    display: block;
+    font-size: 32px;
+    z-index: 11;
+    margin-right: 20px;  /* 右側に20pxの余白を追加 */
 }
 
 .header__nav {
@@ -390,37 +400,47 @@ footer {
     align-items: center;     /* 子要素を垂直方向の中央に配置 */
 }
 
-.header__logo {
-    flex-grow: 1;            /* ロゴが残りのスペースを全て占めるようにする */
-    text-align: center;      /* ロゴを中央に配置 */
-    padding-left: 60px;
-}
-
-
-.burger {
-    font-size: 32px;
-    margin-right: 20px;  /* 右側に20pxの余白を追加 */
-}
-
-.show {
+.header__nav__menu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-color: #144766;
-    opacity: 0.95; 
-    transform: translateX(0);
+    padding: 76px 20px 20px 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.show {
+    opacity: 0.98;
+    visibility: visible;
+}
+
+.show li {
+    position: relative; /* サブ要素の位置調整のためにrelativeに設定 */
+    width: 90%;
+    border-bottom: 1px solid #d3ebfa; /* 下線 */
 }
 
 .show li a {
     color: #d3ebfa;
-    font-size: 1.5em;
-    margin: 1em;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between; /* テキストと矢印の間隔調整 */
+    width: 100%;
+    padding: 1.2rem 0.5rem; /* リンク内の余白 */
+}
+
+.dart {
+    display: block;
+    font-size: 1.2em; /* 矢印のサイズ調整 */
+    margin-right: 30px;
 }
 
 
@@ -429,109 +449,79 @@ footer {
 /* Hero *//* Hero *//* Hero *//* Hero *//* Hero */
 
 .hero__img {
-    margin-top: 0px;
-    background-image:url(/image/hero_mb.jpeg) ;
-
+    background-image:url(/image/hero_logo.svg) ;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: 100px;
+    height: 100svh;
+    align-items: center;
+    vertical-align: bottom;
 }
 
+/* News *//* News *//* News *//* News *//* News *//* News */
+/* News *//* News *//* News *//* News *//* News *//* News */
 
-.hero__txtbox {
-    display: grid;
-        width: 100%;
-        padding-bottom: 60px;
-        grid-template:
-        "head pic"70px
-        "txt pic"100px
-        "txt2 txt2"100px
-        / 2fr 1fr;
+.headline-box{
+    letter-spacing: 0.2rem;
 }
-
-.ttl {
-    grid-area: head;
-    font-size: 24px;
-    padding-top: 40px;
-    font-weight: 700;
-
-}
-
-.ttl__self-introduction {
-    font-weight: 600;
-    grid-area: txt;
-    font-size: 24px;
-    line-height: 1rem;
-    padding-top: 40px;
-}
-
-.ttl__pic {
-    grid-area: pic;
-    height: 150px;
-}
-
-.ttl__self-introduction__txt {
-    grid-area: txt2;
-    padding-top: 40px;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-/* About *//* About *//* About *//* About *//* About *//* About */
-/* About *//* About *//* About *//* About *//* About *//* About */
-
 .headline-top {
     font-size: 32px;
 
 }
 
-.about__txtbox {
+.news-content {
     display: block;
-} 
-
-.about-content__txt-highlight-sky {
-    font-weight: 600;
-    font-size: 18px;
-    padding-bottom: 0px;
-    color: #76C5FF;
+    align-items: center;
+    padding-bottom: 0;
 }
 
-.about-content__txt {
-    padding-top: 40px;
+.news-content__txt,
+.news-content__date {
+    font-size: 14px;
 }
 
-.about-list {
+/* Works *//* Works *//* Works *//* Works *//* Works *//* Works */
+/* Works *//* Works *//* Works *//* Works *//* Works *//* Works */
+
+
+.business__content__box{
+    display: grid;
+    grid-template-columns:50px 6fr 1fr; /* 3カラム */
+    gap: 10px; /* カラム間の隙間 */
+    padding: 30px 0px;
+}
+
+.business_icn{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    width: 100%;
 }
 
-.about-list__item {
-    color: #144766;
+.business_icn img {
+    height: 40px;
+    width: auto;
+}
+
+.business__content__txt{
+    font-size: 14px;
+}
+
+.business__content__name{
     font-size: 20px;
-    font-weight: 500;
-    padding-top: 80px;
-    padding-bottom: 0px;
-    padding-left: 0px;
+    letter-spacing: 0.1rem;
+    padding-top: 6px;
 }
 
-.about-list__item__txt {
-    padding-bottom: 0px;
-    padding-top: 40px;
-    text-align: center;
-}
-
-/* Works *//* Works *//* Works *//* Works *//* Works *//* Works */
-/* Works *//* Works *//* Works *//* Works *//* Works *//* Works */
-
-.works__txtbox {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px; /* グリッドの要素間のギャップを設定 */
-}
-
-.works__item__txt {
-    font-weight: 400;
+.btn__txt {
     font-size: 14px;
+}
+
+.arrow__link::before {
+    display: none;
+}
+
+.btn-arrow {
+    padding-top: 16px;
 }
 
 /* about *//* about *//* about *//* about *//* about */
@@ -539,56 +529,30 @@ footer {
 
 .about__txtbox {
     display: block;
+    text-align: center; /* テキストを中央揃え */
 }
 
-.about__content,
-.about__img {
-    width: 100%;
-}
+.about__content {
+    padding: 10px 0px; /* 余白の追加 */
+    white-space: nowrap; /* 改行を防ぐ */
+    display: inline-block; /* インラインブロックとして表示 */
+    width: 100%; /* 必要に応じて幅を調整 */
+  }
 
-.about__img {
-    padding-top: 50px;
+.about__content a{
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
 
-}
-
-/* Contact *//* Contact *//* Contact *//* Contact *//* Contact */
-/* Contact *//* Contact *//* Contact *//* Contact *//* Contact */
-
-.contact__form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.input-field {
-    display: grid;
-    grid-template-columns: 1.5fr 5fr 0.1fr;
-    gap: 10px;
-    align-items: center;
-}
-
-.form-note {
-    font-size: 14px;
-    text-align: left;
-}
-
-.fa-circle-arrow-up {
-    font-size: 40px;
 }
 
 /* Footer *//* Footer *//* Footer *//* Footer *//* Footer */
 /* Footer *//* Footer *//* Footer *//* Footer *//* Footer */
-
-.footer__nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .copyright {
     padding-top: 20px;
     text-align: center;
-    color: #fff;
+    color: black;
     font-size: 14px;
 }
 
@@ -602,93 +566,41 @@ footer {
     max-width: 700px;
 }
 
-/* Hero *//* Hero *//* Hero *//* Hero *//* Hero */
-/* Hero *//* Hero *//* Hero *//* Hero *//* Hero */    
-.hero__txtbox {
-    display: grid;
-        width: 100%;
-        grid-template:
-        "head pic"70px
-        "txt pic"100px
-        "txt2 txt2"100px
-        / 2fr 1fr ;
-    
-    } 
-
-    .hero {
-        color: white;
-    }
-
-    .ttl {
-        grid-area: head;
-        font-size: 32px;
-        padding-top: 30px;
-    
-    }
-    .hero__img {
-        height: 100lvh;
-        padding: 50px 0;
-    }
-
-/* About *//* About *//* About *//* About *//* About *//* About */
-/* About *//* About *//* About *//* About *//* About *//* About */
-
-.about__txtbox {
-    display: block;
-} 
-
-.about-content__txt-highlight-sky {
-    font-weight: 600;
-    font-size: 18px;
-    padding-bottom: 0px;
-    color: #76C5FF;
-}
-
-.about-content__txt {
-    padding-top: 40px;
-}
-
-.about-list {
+header {
+    width: 100%;
+    height: 50px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 30px;
-    width: 100%;
+    justify-content: flex-end;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+
 }
 
-.about-list__item {
-    color: #144766;
-    font-size: 20px;
-    font-weight: 500;
-    padding-top: 80px;
-    padding-bottom: 0px;
-    padding-left: 0px;
+/* Hero *//* Hero *//* Hero *//* Hero *//* Hero */
+/* Hero *//* Hero *//* Hero *//* Hero *//* Hero */    
+.hero__img {
+    background-image:url(/image/hero_logo.svg) ;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: 100px;
+    height: 100svh;
+    align-items: center;
+    vertical-align: bottom;
 }
 
-.about-list__item__txt {
-    padding-bottom: 0px;
-    padding-top: 40px;
-    text-align: center;
-}
+/* About *//* About *//* About *//* About *//* About *//* About */
+/* About *//* About *//* About *//* About *//* About *//* About */
+
 
 /* Works *//* Works *//* Works *//* Works *//* Works *//* Works */
 /* Works *//* Works *//* Works *//* Works *//* Works *//* Works */
 
 /* about *//* about *//* about *//* about *//* about */
 /* about *//* about *//* about *//* about *//* about */
-.about__txtbox {
-    display: block;
-}
 
-.about__content,
-.about__img {
-    width: 100%;
-}
-
-.about__img {
-    padding-top: 50px;
-
-}
 
 /* Contact *//* Contact *//* Contact *//* Contact *//* Contact */
 /* Contact *//* Contact *//* Contact *//* Contact *//* Contact */
@@ -708,92 +620,18 @@ footer {
 
 /* Hero *//* Hero *//* Hero *//* Hero *//* Hero */
 /* Hero *//* Hero *//* Hero *//* Hero *//* Hero */    
-.hero__txtbox {
-    display: grid;
-        width: 100%;
-        grid-template:
-        "head pic"70px
-        "txt pic"100px
-        "txt2 txt2"100px
-        / 2fr 1fr ;
-    
-    } 
 
-    .hero {
-        color: white;
-    }
-
-    .ttl {
-        grid-area: head;
-        font-size: 32px;
-        padding-top: 30px;
-    
-    }
-    .hero__img {
-        height: 100svh;
-    }
 
 /* About *//* About *//* About *//* About *//* About *//* About */
 /* About *//* About *//* About *//* About *//* About *//* About */
 
-.about__txtbox {
-    display: block;
-} 
-
-.about-content__txt-highlight-sky {
-    font-weight: 600;
-    font-size: 18px;
-    padding-bottom: 0px;
-    color: #76C5FF;
-}
-
-.about-content__txt {
-    padding-top: 40px;
-}
-
-.about-list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    width: 100%;
-}
-
-.about-list__item {
-    color: #144766;
-    font-size: 20px;
-    font-weight: 500;
-    padding-top: 80px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-}
-
-.about-list__item__txt {
-    padding-bottom: 0px;
-    padding-top: 40px;
-    text-align: center ;
-}
 
 /* Works *//* Works *//* Works *//* Works *//* Works *//* Works */
 /* Works *//* Works *//* Works *//* Works *//* Works *//* Works */
 
 /* about *//* about *//* about *//* about *//* about */
 /* about *//* about *//* about *//* about *//* about */
-.about__txtbox {
-    display: block;
-}
 
-.about__content,
-.about__img {
-    width: 100%;
-}
-
-
-
-.about__img {
-    padding-top: 50px;
-
-}
 
 /* Contact *//* Contact *//* Contact *//* Contact *//* Contact */
 /* Contact *//* Contact *//* Contact *//* Contact *//* Contact */
