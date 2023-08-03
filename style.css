@@ -154,7 +154,7 @@ background-size: 200% auto; /* グラデーションが画面外まで広がる�
 .hero__img {
     background-color: white; /* ここを変更 - 背景色を適切な値に設定 */
     display: flex;
-    background-image:url(../Bloom_PJ/image/PNG/hero_logo.png) ;
+    background-image:url(../Bloom_PJ/image/hero_logo.png) ;
     background-repeat:no-repeat;
     background-position: center;
     background-size: 400px;
